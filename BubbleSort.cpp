@@ -18,10 +18,7 @@ vector<int> bubbleSort(vector<int>array)
           }
        }
       // No Swapping happened, array is sorted
-      if(!flag)
-			{ 
-         return array; 
-      } 
-   }
+      if(!flag) return array;  
+   }//for loop end
 }
 
