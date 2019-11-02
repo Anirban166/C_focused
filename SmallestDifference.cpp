@@ -1,4 +1,6 @@
 #include<vector>
+#include<algorithm>
+#include<climits>
 using namespace std;
 vector<int> smallestDifference(vector<int>arrayOne,vector<int>arrayTwo)
 { sort(arrayOne.begin(),arrayOne.end());  
