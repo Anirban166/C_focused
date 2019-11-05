@@ -14,10 +14,10 @@ void initialize( int Arr[ ], int N)
     //change all entries from arr[ A ] to arr[ B ].
     void union(int Arr[ ], int N, int A, int B)
     {
-        int TEMP = Arr[ A ];
+        int temp = Arr[ A ];
     for(int i = 0; i < N;i++)
         {
-        if(Arr[ i ] == TEMP)
+        if(Arr[ i ] == temp)
         Arr[ i ] = Arr[ B ]; 
         }
     }
