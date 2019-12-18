@@ -1,4 +1,4 @@
-##C focused repository
+Mostly for my use. 
 
 Languages: C | C++ | C# 
 
