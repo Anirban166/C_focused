@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int bintogray(int);
 
@@ -15,22 +16,16 @@ int main ()
 int bintogray(int bin)
 {
     int a, b, result = 0, i = 0;
-    if (!bin)
-        {
-            return 0;
-        }
-    else
+    while (bin != 0)
         {
             a = bin % 10;
             bin = bin / 10;
             b = bin % 10;
             if ((a && !b) || (!a && b))
                 {
-                    return (1 + 10 * bintogray(bin));
+                    result = result + pow(10, i);
                 }
-            else
-                {
-                    return (10 * bintogray(bin));
-                }
+            i++;
         }
+    return result;
 }
