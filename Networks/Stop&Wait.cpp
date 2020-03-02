@@ -1,27 +1,28 @@
 #include<iostream>
-#include <time.h>
-#include <cstdlib>
+#include<cstdlib>
 #include<ctime>
-#include <unistd.h>
+#include<unistd.h>
 using namespace std;
 class timer {
     private:
      unsigned long begTime;
     public:
      void start() {
-      begTime = clock();
+      begTime = clock(); //extract start time
      }
-  unsigned long elapsedTime() {
+  unsigned long elapsedTime() //function for calculating time difference
+    {
       return ((unsigned long) clock() - begTime) / CLOCKS_PER_SEC;
     }
-   bool isTimeout(unsigned long seconds) {
+   bool isTimeout(unsigned long seconds) //timeout after given threshold for delay
+     {
       return seconds >= elapsedTime();
      }
 };
 int main()
 {
- int frames[] = {1,2,3,4,5,6,7,8,9,10};
- unsigned long seconds = 5;
+ int frames[] = {1,2,3,4,5,6,7,8,9,10}; //customize array of frames
+ unsigned long seconds = 5; //threshold for delay
  srand(time(NULL));
  timer t;
  cout<<"Sender has to send frames : ";
@@ -38,12 +39,12 @@ int main()
      cout.flush();
      cout<<"\t\t";
      t.start();
-     if(rand()%2)
+     if(rand()%2) //every alternate count
      {
          int to = 24600 + rand()%(64000 - 24600)  + 1;
          for(int i=0;i<64000;i++)
              for(int j=0;j<to;j++) {}
-     }
+     } 
      if(t.elapsedTime() <= seconds)
      {
          cout<<"Received Frame : "<<frames[count]<<" ";
@@ -76,6 +77,6 @@ int main()
          else if(!timeout)
              cout<<"Acknowledgement : "<<frames[count]-1<<endl;
      }
- }while(count!=10);
+ }while(count!=10); //till all frames are recieved
  return 0;
 }
